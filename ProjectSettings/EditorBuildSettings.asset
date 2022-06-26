@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/WassilyFinalScene.unity
-    guid: 344696b353000794aa0cce8f9a44232b
-  m_configObjects: {}
+    path: Assets/Scenes/GaiaVRScene2.unity
+    guid: f360cfc3c048f0a4aa0b77b0693b1357
+  m_configObjects:
+    Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 96e6b8de90474e2409cf7564804689ce, type: 2}
+    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 1654c8e5a7188474eabb97f34f1595c4, type: 2}
+    com.unity.xr.openxr.settings4: {fileID: 11400000, guid: 04e47a84a13ef2047b1d9b3fd0109a5e, type: 2}
