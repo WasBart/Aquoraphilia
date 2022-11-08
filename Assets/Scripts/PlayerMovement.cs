@@ -76,6 +76,8 @@ public class PlayerMovement : MonoBehaviour
             speedMultiplier = 10.0f;
         }
 
+        speedMultiplier = 2.0f;
+
         Vector3 move = transform.right * x + transform.forward * z;
         charController.Move(move * (moveSpeed*speedMultiplier)* Time.deltaTime);
 

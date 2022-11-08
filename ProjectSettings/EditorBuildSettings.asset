@@ -6,8 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/GaiaScene.unity
-    guid: b062a20164e8e4e4ab0c9ba347f8eacd
+    path: Assets/Scenes/VRSceneWithHill.unity
+    guid: 2217add9540b4c6489391ac335efdf9f
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 146adb799701ddd4bb7141b93d25df0e, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 167b0f60649cefd4e84f1db7003b318c, type: 2}

@@ -40,6 +40,16 @@ MonoBehaviour:
     sessionPlaybackState: 1
     m_terrainsFoldedOut: 0
     m_serializedExternalAction: 
+  - m_description: 'Updating World To: 1 x 1 tiles, tile size: 128'
+    m_operationType: 14
+    m_isActive: 1
+    m_affectedTerrainNames: []
+    m_operationDateTime: 01.09.2022 20:53:53
+    scriptableObjectAssetGUID: bb5924fd436ebe243983a78e8aaf9fab
+    m_isFoldedOut: 0
+    sessionPlaybackState: 1
+    m_terrainsFoldedOut: 0
+    m_serializedExternalAction: 
   m_terrainMinMaxCache: []
   m_bakedMaskCacheEntries: []
   m_worldBiomeMaskSettings: {fileID: 0}

@@ -1,8 +1,4 @@
-/************************************************************************************
-
-Copyright (c) Facebook Technologies, LLC and its affiliates. All rights reserved.  
-
-************************************************************************************/
+// (c) Meta Platforms, Inc. and affiliates. Confidential and proprietary.
 
 using UnityEngine;
 using System;
@@ -28,6 +24,7 @@ public class MoviePlayerSample : MonoBehaviour
     public bool LoopVideo;
     public VideoShape Shape;
     public VideoStereo Stereo;
+    public bool AutoDetectStereoLayout;
     public bool DisplayMono;
 
     // keep track of last state so we know when to update our display
@@ -89,6 +86,37 @@ public class MoviePlayerSample : MonoBehaviour
 
     private void UpdateShapeAndStereo()
     {
+        if (AutoDetectStereoLayout)
+        {
+            if (overlay.isExternalSurface)
+            {
+                int w = NativeVideoPlayer.VideoWidth;
+                int h = NativeVideoPlayer.VideoHeight;
+                switch(NativeVideoPlayer.VideoStereoMode)
+                {
+                    case NativeVideoPlayer.StereoMode.Mono:
+                        Stereo = VideoStereo.Mono;
+                        break;
+                    case NativeVideoPlayer.StereoMode.LeftRight:
+                        Stereo = VideoStereo.LeftRight;
+                        break;
+                    case NativeVideoPlayer.StereoMode.TopBottom:
+                        Stereo = VideoStereo.TopBottom;
+                        break;
+                    case NativeVideoPlayer.StereoMode.Unknown:
+                        if (w > h)
+                        {
+                            Stereo = VideoStereo.LeftRight;
+                        }
+                        else
+                        {
+                            Stereo = VideoStereo.TopBottom;
+                        }
+                        break;
+                }
+            }
+        }
+
         if (Shape != _LastShape || Stereo != _LastStereo || DisplayMono != _LastDisplayMono)
         {
             Rect destRect = new Rect(0, 0, 1, 1);
@@ -109,6 +137,7 @@ public class MoviePlayerSample : MonoBehaviour
             }
 
             overlay.overrideTextureRectMatrix = true;
+            overlay.invertTextureRects = false;
 
             Rect sourceLeft = new Rect(0, 0, 1, 1);
             Rect sourceRight = new Rect(0, 0, 1, 1);
@@ -131,7 +160,6 @@ public class MoviePlayerSample : MonoBehaviour
                     break;
             }
 
-            overlay.invertTextureRects = false;
             overlay.SetSrcDestRects(sourceLeft, DisplayMono ? sourceLeft : sourceRight, destRect, destRect);
 
             _LastDisplayMono = DisplayMono;

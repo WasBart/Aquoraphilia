@@ -23,7 +23,7 @@ public class ResetWorld : MonoBehaviour
         if(other.gameObject.tag == "Player")
         {
             StartCoroutine(ReloadScene());
-            endText.SetActive(true);
+            //endText.SetActive(true);
         }
     }
 
